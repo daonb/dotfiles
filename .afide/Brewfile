@@ -1,4 +1,7 @@
+install pyenv
+install wget
 install tmux
 install zsh
 install neovim
 install yadm
+install antibody
