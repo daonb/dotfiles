@@ -1,0 +1,4 @@
+install tmux
+install zsh
+install neovim
+install yadm
