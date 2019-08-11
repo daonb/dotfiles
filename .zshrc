@@ -10,7 +10,7 @@ export HISTSIZE=5000
 export SAVEHIST=5000
 export ANTIBODY_HOME=~/Libary/antibody
 # pyenv
-export PATH="$HOME/.afide/bin:$HOME/.pyenv/bin:$PATH"
+export PATH="$HOME/.afide/bin:$HOME/.pyenv/bin:/usr/local/bin:$PATH"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
