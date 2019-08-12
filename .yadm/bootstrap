@@ -13,7 +13,7 @@ if ! command -v brew >/dev/null 2>&1; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
     fi
 fi
-
+PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 # Install/update brew bundle
 if [ -f "$AFIDE/Brewfile" ]; then
     echo "Updating homebrew bundles"
@@ -28,16 +28,22 @@ if [ "$system_type" = "Darwin" ]; then
     defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
   fi
 fi
-# pyenv
+# pyenv-virtualenv
 echo "Bootstraping Neovim"
-git clone https://github.com/pyenv/pyenv-virtualenv.git
-    $(pyenv root)/plugins/pyenv-virtualenv
-pyenv install 2.7.15
-pyenv install 3.7.3
-pyenv virtualenv 2.7.15 afide2
-pyenv activate afide2 && pip install neovim
-pyenv virtualenv 3.7.3 afide3
-pyenv activate afide3 && pip install neovim
+if [ ! -d $(pyenv root)/plugins/pyenv-virtualenv]; then
+    git clone https://github.com/pyenv/pyenv-virtualenv.git
+        $(pyenv root)/plugins/pyenv-virtualenv
+fi
+if [[ ! $(pyenv versions) == *"afide2"* ]]; then
+    pyenv install 2.7.15
+    pyenv virtualenv 2.7.15 afide2
+    pyenv activate afide2 && pip install neovim
+fi
+if [[ ! $(pyenv versions) == *"afide3"* ]]; then
+    pyenv install 3.7.3
+    pyenv virtualenv 3.7.3 afide3
+    pyenv activate afide3 && pip install neovim
+fi
 
 # Bootstrap neovim
 if command -v nvim >/dev/null 2>&1; then
@@ -63,4 +69,5 @@ if command -v tmux >/dev/null 2>&1; then
     "$HOME"/.tmux/plugins/tpm/bin/update_plugins all
   fi
 fi
-
+# termino
+tic "$HOME/.terminfo/xterm-256color-italic.terminfo"
