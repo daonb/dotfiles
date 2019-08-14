@@ -15,7 +15,7 @@ if ! command -v brew >/dev/null 2>&1; then
 fi
 PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 # Install/update brew bundle
-if [ -f "$AFIDE/Brewfile" ]; then
+if [ -f ".Brewfile" ]; then
     echo "Updating homebrew bundles"
     brew update
     brew doctor && brew bundle --global
@@ -29,11 +29,7 @@ if [ "$system_type" = "Darwin" ]; then
   fi
 fi
 # pyenv-virtualenv
-echo "Bootstraping Neovim"
-if [ ! -d "$(pyenv root)/plugins/pyenv-virtualenv" ]; then
-    git clone https://github.com/pyenv/pyenv-virtualenv.git \
-        "$(pyenv root)/plugins/pyenv-virtualenv"
-fi
+echo "Bootstraping Python"
 if [[ ! $(pyenv versions) == *"afide2"* ]]; then
     pyenv install 2.7.15
     pyenv virtualenv 2.7.15 afide2
