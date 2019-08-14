@@ -1,5 +1,5 @@
 #!/bin/bash
-cd "$HOME"
+cd "$HOME" || exit
 AFIDE="$HOME/.afide"
 
 system_type=$(uname -s)
@@ -30,9 +30,9 @@ if [ "$system_type" = "Darwin" ]; then
 fi
 # pyenv-virtualenv
 echo "Bootstraping Neovim"
-if [ ! -d $(pyenv root)/plugins/pyenv-virtualenv]; then
-    git clone https://github.com/pyenv/pyenv-virtualenv.git
-        $(pyenv root)/plugins/pyenv-virtualenv
+if [ ! -d "$(pyenv root)/plugins/pyenv-virtualenv" ]; then
+    git clone https://github.com/pyenv/pyenv-virtualenv.git \
+        "$(pyenv root)/plugins/pyenv-virtualenv"
 fi
 if [[ ! $(pyenv versions) == *"afide2"* ]]; then
     pyenv install 2.7.15
@@ -56,9 +56,9 @@ nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
 # Bootstrap tmux
 if command -v tmux >/dev/null 2>&1; then
   echo "Bootstrapping tmux"
+  mkdir -p "$HOME/.tmux/plugins"
   if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     # installing tmux-plugin-manager and plugins
-    mkdir -p "$HOME/.tmux/plugins"
     git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
     "$HOME"/.tmux/plugins/tpm/bin/install_plugins
   else
