@@ -15,7 +15,7 @@ Plug 'vim-airline/vim-airline'
 call plug#end()
 filetype plugin indent on    " required
 syntax on
-set colorcolumn=80
+set colorcolumn=120
 set tabstop=4
 set shiftwidth=0    " Use tabstop
 set softtabstop=-1  " Use shiftwidthset shiftwidth=4
@@ -65,7 +65,7 @@ map <F3> :NERDTreeToggle<CR>
 " au BufNewFile,BufRead *.py 
 au FileType py 
     \ set tabstop=4 |
-    \ set textwidth=79 |
+    \ set textwidth=120 |
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix 

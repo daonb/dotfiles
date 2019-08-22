@@ -26,6 +26,7 @@ brew 'neovim'
 # Zsh
 brew 'zsh'
 brew 'getantibody/tap/antibody'
+brew 'direnv'
 
 # Dev
 brew 'git'

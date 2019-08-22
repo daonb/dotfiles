@@ -8,6 +8,9 @@ export HISTFILE=~/.zsh_history
 export HISTSIZE=5000
 export SAVEHIST=5000
 export ANTIBODY_HOME=~/Libary/antibody
+if [ -d "/usr/local/opt/openssl/lib" ]; then 
+    export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl/lib/"
+fi
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
 if [ -d "/home/linuxbrew/.linuxbrew/bin" ]; then
@@ -19,6 +22,8 @@ eval "$(pyenv virtualenv-init -)"
 # antibody
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins
+# direnv
+eval "$(direnv hook zsh)"
 # *** A Fittest IDE ***
 bindkey -v
 setopt extendedhistory
@@ -37,3 +42,4 @@ alias zshc='nvim "$HOME/.afide/config/zshrc"'
 alias vic='nvim "$HOME/.afide/config/init.vim"'
 alias tmuxc='nvim "$HOME/.afide/config/tmux.conf"'
 alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
