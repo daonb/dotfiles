@@ -7,6 +7,7 @@ export KEYTIMEOUT=1
 export HISTFILE=~/.zsh_history
 export HISTSIZE=5000
 export SAVEHIST=5000
+export LC_ALL=en_US.UTF-8
 export ANTIBODY_HOME=~/Libary/antibody
 if [ -d "/usr/local/opt/openssl/lib" ]; then 
     export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl/lib/"
