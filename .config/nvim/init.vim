@@ -6,8 +6,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'master' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-obsession'
 Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
