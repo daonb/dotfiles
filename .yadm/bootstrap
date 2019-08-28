@@ -16,7 +16,6 @@ if [ "$system_type" = "Darwin" ]; then
 else
     $sudo apt-get update 
     $sudo apt-get install -y zsh curl direnv tmux 
-    $sudo apt autoremove
     $sudo curl -sfLo /usr/local/bin/nvim \
         https://github.com/neovim/neovim/releases/download/v0.3.8/nvim.appimage
     $sudo chmod +x /usr/local/bin/nvim
