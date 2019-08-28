@@ -4,74 +4,45 @@ AFIDE="$HOME/.afide"
 
 system_type=$(uname -s)
 
-if [[ $EUID -eq 0 ]]; then
-    sudo=""
-else
-    sudo="sudo"
-fi
+sudo=$(command -v sudo)
 
-if ! command -v brew >/dev/null 2>&1; then
-    echo "Installing homebrew"
-    if [ "$system_type" = "Darwin" ]; then
+if [ "$system_type" = "Darwin" ]; then
+    if ! command -v brew >/dev/null 2>&1; then
+        echo "Installing homebrew"
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    else
-        $sudo apt-get update && apt-get install -Y --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev linuxbrew-wrapper
-# pyenv-virtualenv
     fi
-fi
-PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-# Install/update brew bundle
-if [ -f "$HOME/Brewfile" ]; then
     echo "Updating homebrew bundles"
     cd "$HOME" && brew doctor && brew bundle --global
+else
+    $sudo apt-get update 
+    $sudo apt-get install -y --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+    $sudo apt-get install tmux neovim zsh direnv
+    curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
+    # pyenv 
+    [ ! -d $HOME/.pyenv ] && curl https://pyenv.run | zsh
+    [ ! -d $HOME/.pyenv/plugins/pyenv-virtualenv ] && \
+        git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 fi
-if [ "$system_type" = "Darwin" ]; then
-  # Setup iTerm2
-  if [ -d "$HOME/.iterm2" ]; then
-    echo "Setting iTerm preference folder"
-    defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/.iterm2"
-    defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
-  fi
-fi
-echo "Bootstraping Python"
-if [[ ! $(pyenv versions) == *"afide2"* ]]; then
-    if [[ ! $(pyenv versions) == *"2.7.15"* ]]; then
-        pyenv install 2.7.15
-    fi
-    pyenv virtualenv 2.7.15 afide2
-    pyenv activate afide2 && pip install pynvim
-fi
-if [[ ! $(pyenv versions) == *"afide3"* ]]; then
-    if [[ ! $(pyenv versions) == *"3.7.3"* ]]; then
-        pyenv install 3.7.3
-    fi
-    pyenv virtualenv 3.7.3 afide3
-    pyenv activate afide3 && pip install pynvim
-fi
-
-# Bootstrap neovim
-if command -v nvim >/dev/null 2>&1; then
-    echo "Bootstraping Neovim"
+zsh $HOME/.yadm/pyenv_bootstrap
+# neovim plugins
+if [ ! -f "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
 	curl -sfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
 
 # Bootstrap tmux
-if command -v tmux >/dev/null 2>&1; then
-  echo "Bootstrapping tmux"
-  mkdir -p "$HOME/.tmux/plugins"
-  if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    mkdir -p "$HOME/.tmux/plugins"
     # installing tmux-plugin-manager and plugins
     git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
     "$HOME"/.tmux/plugins/tpm/bin/install_plugins
-  else
+else
     # updating tpm and plugins
     cd "$HOME/.tmux/plugins/tpm"
     git pull -p
     cd "$HOME"
     "$HOME"/.tmux/plugins/tpm/bin/update_plugins all
-  fi
 fi
 # termino
 tic "$HOME/.terminfo/xterm-256color-italic.terminfo"

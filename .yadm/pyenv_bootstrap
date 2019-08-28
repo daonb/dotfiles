@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+if [[ ! $(pyenv versions) == *"afide2"* ]]; then
+    if [[ ! $(pyenv versions) == *"2.7.15"* ]]; then
+        pyenv install 2.7.15
+    fi
+    pyenv virtualenv 2.7.15 afide2
+    pyenv activate afide2 && pip install pynvim
+fi
+if [[ ! $(pyenv versions) == *"afide3"* ]]; then
+    if [[ ! $(pyenv versions) == *"3.7.3"* ]]; then
+        pyenv install 3.7.3
+    fi
+    pyenv virtualenv 3.7.3 afide3
+    pyenv activate afide3 && pip install pynvim
+fi
