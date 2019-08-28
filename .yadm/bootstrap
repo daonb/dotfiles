@@ -16,7 +16,7 @@ if [ "$system_type" = "Darwin" ]; then
 else
     $sudo apt-get update 
     $sudo apt-get install -y zsh curl direnv tmux 
-    $sudo apt autoclean
+    $sudo apt autoremove
     $sudo curl -sfLo /usr/local/bin/nvim \
         https://github.com/neovim/neovim/releases/download/v0.3.8/nvim.appimage
     $sudo chmod +x /usr/local/bin/nvim
@@ -26,7 +26,9 @@ if [ ! -f "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
 	curl -sfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
-pip3 install pynvim
+python3 -m pip install --upgrade pip
+python3 -m pip install pynvim
+
 nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
 
 # Bootstrap tmux
@@ -44,4 +46,5 @@ else
 fi
 # termino
 tic "$HOME/.terminfo/xterm-256color-italic.terminfo"
+echo "One last step - making zsh you default"
 chsh -s "$(command -v zsh)"
