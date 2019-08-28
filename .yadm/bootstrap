@@ -14,6 +14,7 @@ if [ "$system_type" = "Darwin" ]; then
     echo "Updating homebrew bundles"
     cd "$HOME" && brew doctor && brew bundle --global
 else
+    [ ! -z "$sudo" ] && echo "Updating system package requires you pass"
     $sudo apt-get update 
     $sudo apt-get install -y zsh curl direnv python3-pip tmux 
     $sudo curl -sfLo /usr/local/bin/nvim \
@@ -45,5 +46,5 @@ else
 fi
 # termino
 tic "$HOME/.terminfo/xterm-256color-italic.terminfo"
-echo "One last step - making zsh you default"
+echo "One last time - a pass to make zsh your default"
 chsh -s "$(command -v zsh)"
