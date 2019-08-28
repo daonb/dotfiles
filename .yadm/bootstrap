@@ -41,3 +41,4 @@ else
 fi
 # termino
 tic "$HOME/.terminfo/xterm-256color-italic.terminfo"
+chsh -s "$(command -v zsh)"
