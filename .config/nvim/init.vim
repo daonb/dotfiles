@@ -32,27 +32,12 @@ set number
 
 let mapleader = ","
 let python_highlight_all=1
-" let g:syntastic_always_populate_loc_list = 1
+"TODO: figure out what the next lines do and remove them or uncomment
+"let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_checkers = ['jshint']
-" let g:SimpylFold_docstring_preview=1
-let g:python_host_prog = "~/.pyenv/versions/afide2/bin/python"
-let g:python3_host_prog = "~/.pyenv/versions/afide3/bin/python"
-let g:pymode = 1
-let g:pymode_options = 1
-let g:pymode_folding = 1
-let g:pymode_doc = 1
-let g:pymode_doc_bind = 'K'
-let g:pymode_rope = 1
-let g:pymode_virtualenv = 1
-let g:pymode_rope_regenerate_on_write = 0
-let g:pymode_quickfix_maxheight = 1
-let g:pymode_indent = 1
-let g:pymode_rope_show_doc_bind = '<C-c>d'
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_python = 'python3'
 let g:tmux_navigator_disable_when_zoomed = 1
 set foldmethod=indent
 set foldlevel=99
@@ -72,4 +57,5 @@ au FileType py
     \ set fileformat=unix 
 " au BufNewFile,BufRead *.js, *.html, *.css
 au FileType js, html, css
-    \ set tabstop=2
+    \ set tabstop=4 |
+    \ set textwidth=120

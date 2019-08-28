@@ -12,18 +12,10 @@ export ANTIBODY_HOME=~/Libary/antibody
 if [ -d "/usr/local/opt/openssl/lib" ]; then 
     export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl/lib/"
 fi
-# pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-if [ -d "/home/linuxbrew/.linuxbrew/bin" ]; then
-    export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-fi
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-# antibody
+# antibody - zsh plugins FTW
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins
-# direnv
+# direnv - loading a local .envrc on cd
 eval "$(direnv hook zsh)"
 # *** A Fittest IDE ***
 bindkey -v
