@@ -15,7 +15,7 @@ if [ "$system_type" = "Darwin" ]; then
     cd "$HOME" && brew doctor && brew bundle --global
 else
     $sudo apt-get update 
-    $sudo apt-get install -y zsh curl direnv tmux 
+    $sudo apt-get install -y zsh curl direnv python3-pip tmux 
     $sudo curl -sfLo /usr/local/bin/nvim \
         https://github.com/neovim/neovim/releases/download/v0.3.8/nvim.appimage
     $sudo chmod +x /usr/local/bin/nvim
