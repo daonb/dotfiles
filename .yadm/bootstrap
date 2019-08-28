@@ -10,7 +10,8 @@ if ! command -v brew >/dev/null 2>&1; then
     if [ "$system_type" = "Darwin" ]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     else
-	sudo apt-get install linuxbrew-wrapper
+        sudo apt-get update; sudo apt-get install -Y --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-devfi linuxbrew-wrapper
+# pyenv-virtualenv
     fi
 fi
 PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
@@ -26,9 +27,7 @@ if [ "$system_type" = "Darwin" ]; then
     defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/.iterm2"
     defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
   fi
-else
-    sudo apt-get update; sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-devfi
-# pyenv-virtualenv
+fi
 echo "Bootstraping Python"
 if [[ ! $(pyenv versions) == *"afide2"* ]]; then
     if [[ ! $(pyenv versions) == *"2.7.15"* ]]; then
