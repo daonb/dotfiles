@@ -10,15 +10,14 @@ if ! command -v brew >/dev/null 2>&1; then
     if [ "$system_type" = "Darwin" ]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     else
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+	sudo apt-get install linuxbrew-wrapper
     fi
 fi
-PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
 # Install/update brew bundle
-if [ -f ".Brewfile" ]; then
+if [ -f "$HOME/Brewfile" ]; then
     echo "Updating homebrew bundles"
-    brew update
-    brew doctor && brew bundle --global
+    cd "$HOME" && brew doctor && brew bundle --global
 fi
 if [ "$system_type" = "Darwin" ]; then
   # Setup iTerm2
@@ -27,18 +26,23 @@ if [ "$system_type" = "Darwin" ]; then
     defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/.iterm2"
     defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
   fi
-fi
+else
+    sudo apt-get update; sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-devfi
 # pyenv-virtualenv
 echo "Bootstraping Python"
 if [[ ! $(pyenv versions) == *"afide2"* ]]; then
-    pyenv install 2.7.15
+    if [[ ! $(pyenv versions) == *"2.7.15"* ]]; then
+        pyenv install 2.7.15
+    fi
     pyenv virtualenv 2.7.15 afide2
-    pyenv activate afide2 && pip install neovim
+    pyenv activate afide2 && pip install pynvim
 fi
 if [[ ! $(pyenv versions) == *"afide3"* ]]; then
-    pyenv install 3.7.3
+    if [[ ! $(pyenv versions) == *"3.7.3"* ]]; then
+        pyenv install 3.7.3
+    fi
     pyenv virtualenv 3.7.3 afide3
-    pyenv activate afide3 && pip install neovim
+    pyenv activate afide3 && pip install pynvim
 fi
 
 # Bootstrap neovim
