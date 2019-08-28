@@ -17,7 +17,7 @@ else
     $sudo apt-get update 
     $sudo apt-get install -y --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
     $sudo apt-get install -y tmux neovim zsh direnv
-    curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
+    curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
     # pyenv 
     [ ! -d $HOME/.pyenv ] && curl https://pyenv.run | zsh
     [ ! -d $HOME/.pyenv/plugins/pyenv-virtualenv ] && \
