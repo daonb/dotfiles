@@ -15,7 +15,7 @@ if ! command -v brew >/dev/null 2>&1; then
     if [ "$system_type" = "Darwin" ]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     else
-        $sudo apt-get update && apt-get install -Y --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-devfi linuxbrew-wrapper
+        $sudo apt-get update && apt-get install -Y --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev linuxbrew-wrapper
 # pyenv-virtualenv
     fi
 fi
