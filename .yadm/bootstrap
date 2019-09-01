@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 cd "$HOME" || exit
 
 system_type=$(uname -s)
@@ -43,10 +43,8 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     "$HOME"/.tmux/plugins/tpm/bin/install_plugins
 else
     # updating tpm and plugins
-    cd "$HOME/.tmux/plugins/tpm"
-    git pull -p
-    cd "$HOME"
-    "$HOME"/.tmux/plugins/tpm/bin/update_plugins all
+    cd "$HOME/.tmux/plugins/tpm" || git pull -p
+    cd "$HOME" || "$HOME"/.tmux/plugins/tpm/bin/update_plugins all
 fi
 # termino
 tic "$HOME/.terminfo/xterm-256color-italic.terminfo"
