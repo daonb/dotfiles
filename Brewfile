@@ -22,6 +22,8 @@ brew 'nmap'
 brew 'gpg'
 brew 'htop'
 brew 'neovim'
+brew 'fortune'
+brew 'cowsay'
 
 # Zsh
 brew 'zsh'
