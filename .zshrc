@@ -36,7 +36,7 @@ alias vic='nvim "$HOME/.afide/config/init.vim"'
 alias tmuxc='nvim "$HOME/.afide/config/tmux.conf"'
 alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 if [ $(uname -s) = "Darwin" ]; then
-    fortune | cowsay -f $(find "/usr/local/share/cows/" | sort -R | head -1) -n
+    fortune | cowsay -f $(find "/usr/local/Cellar/cowsay/3.04/share/" | sort -R | head -1) -n
 else
     fortune | cowsay -f $(find  "/usr/share/cowsay/cows/" | shuf | head -1) -n
 fi
