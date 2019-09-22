@@ -40,3 +40,6 @@ if [ $(uname -s) = "Darwin" ]; then
 else
     fortune | cowsay -f $(find  "/usr/share/cowsay/cows/" | shuf | head -1) -n
 fi
+export PATH="/home/daonb/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
