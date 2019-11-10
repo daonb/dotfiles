@@ -1,6 +1,7 @@
 set nocompatible              " required
 filetype off                  " required
 color elflord
+set ignorecase smartcase
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.local/share/nvim/plugged')
