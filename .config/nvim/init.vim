@@ -1,6 +1,7 @@
 set nocompatible              " required
 filetype off                  " required
 color elflord
+set ignorecase smartcase
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.local/share/nvim/plugged')
@@ -13,6 +14,7 @@ Plug 'tpope/vim-obsession'
 Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
+Plug 'shougo/denite.nvim'
 call plug#end()
 filetype plugin indent on    " required
 syntax on
@@ -48,6 +50,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <space> za
 map <F3> :NERDTreeToggle<CR>
+nmap ; :Denite file/rec buffer<CR>
 " au BufNewFile,BufRead *.py 
 au FileType py 
     \ set tabstop=4 |

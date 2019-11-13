@@ -32,12 +32,15 @@ alias ab="antibody"
 alias ide='[ -z "$TMUX" ] && [ -z "$VIM" ] && tmux new-session -ADs afide'
 alias dide="docker run -ti afide tmux new-session -ADs afide "
 alias ll="ls -l"
-alias zshc='nvim "$HOME/.afide/config/zshrc"'
-alias vic='nvim "$HOME/.afide/config/init.vim"'
-alias tmuxc='nvim "$HOME/.afide/config/tmux.conf"'
+alias zshc='nvim "$HOME/.zshrc"'
+alias vic='nvim "$HOME/.config/nvim/init.vim"'
+alias tmuxc='nvim "$HOME/.tmux.conf"'
 alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 if [ $(uname -s) = "Darwin" ]; then
     fortune | cowsay -f $(find "/usr/local/Cellar/cowsay/3.04/share/" | sort -R | head -1) -n
 else
     fortune | cowsay -f $(find  "/usr/share/cowsay/cows/" | shuf | head -1) -n
 fi
+export PATH="$HOME/.pyenv/bin:$HOME/.local/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
