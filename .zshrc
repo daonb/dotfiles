@@ -9,7 +9,7 @@ export HISTSIZE=5000
 export SAVEHIST=5000
 export LC_ALL=en_US.UTF-8
 export ANTIBODY_HOME=~/Libary/antibody
-export PATH="$(python3 -c 'import site;print(site.USER_BASE)')/bin:$PATH"
+export PATH="$(python3 -c 'import site;print(site.USER_BASE)')/bin:$HOME/.npm/bin:$PATH"
 if [ -d "/usr/local/opt/openssl/lib" ]; then 
     export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl/lib/"
 fi
@@ -41,6 +41,3 @@ if [ $(uname -s) = "Darwin" ]; then
 else
     fortune | cowsay -f $(find  "/usr/share/cowsay/cows/" | shuf | head -1) -n
 fi
-export PATH="$HOME/.pyenv/bin:$HOME/.local/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
