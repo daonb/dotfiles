@@ -9,6 +9,7 @@ export HISTSIZE=5000
 export SAVEHIST=5000
 export LC_ALL=en_US.UTF-8
 export ANTIBODY_HOME=~/Libary/antibody
+export PATH="$(python3 -c 'import site;print(site.USER_BASE)')/bin:$PATH"
 if [ -d "/usr/local/opt/openssl/lib" ]; then 
     export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl/lib/"
 fi
