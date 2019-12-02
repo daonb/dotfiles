@@ -33,7 +33,5 @@ brew 'direnv'
 # Dev
 brew 'git'
 brew 'jq'
+brew 'fzf'
 
-# Dev/Python
-brew 'pyenv'
-brew 'pyenv-virtualenv'

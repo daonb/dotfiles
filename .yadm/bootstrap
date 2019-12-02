@@ -16,7 +16,7 @@ else
     [ ! -z "$sudo" ] && echo "Updating system package requires you pass"
     $sudo apt-get update 
     $sudo apt-get install -y python python-pip python3 python3-pip \
-        nodejs tmux zsh direnv curl fortune cowsay
+        nodejs tmux zsh direnv curl fortune cowsay fzf
     $sudo curl -sfLo /usr/local/bin/nvim \
         https://github.com/neovim/neovim/releases/download/v0.3.8/nvim.appimage
     $sudo chmod +x /usr/local/bin/nvim
