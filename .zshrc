@@ -44,3 +44,7 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias ft='fzf-tmux'
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
