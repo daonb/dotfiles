@@ -27,7 +27,8 @@ else
 fi
 # fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-source ~/.fzf/install
+# TODO: copy key beinding from the install script
+~/.fzf/install --no-key-bindings --no-completion --no-update-rc --no-bash --no-fish
 # neovim's plug manager
 if [ ! -f "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
 	curl -sfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -39,7 +40,7 @@ python3 -m pip install --user --upgrade pip setuptools wheel
 python3 -m pip install --user neovim
 python2 -m pip install --user --upgrade pip setuptools wheel
 python2 -m pip install --user neovim
-npm install -g neovim
+sudo npm install -g neovim
 
 # Running neovim to update the plugins
 nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
