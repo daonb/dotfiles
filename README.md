@@ -35,6 +35,7 @@ seamless navigation between
 * [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect)
 * [tmux-copycat](https://github.com/tmux-plugins/tmux-copycat)
 * [tmux-open](https://github.com/tmux-plugins/tmux-open)
+* [ale](https://github.com/dense-analysis/ale) - asynchrounous python linting
 
 
 ## Commands
