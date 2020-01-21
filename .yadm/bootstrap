@@ -38,7 +38,7 @@ python3 -m pip install --user --upgrade pip setuptools wheel
 python3 -m pip install --user neovim
 python2 -m pip install --user --upgrade pip setuptools wheel
 python2 -m pip install --user neovim
-npm install -g neovim
+sudo npm install -g neovim
 
 # Running neovim to update the plugins
 nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
