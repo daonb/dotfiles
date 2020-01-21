@@ -35,8 +35,8 @@ fittest editor.
 * [tmux-sensible](https://github.com/tmux-plugins/tmux-sensible) - sensible settings
 * [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) 
 seamless navigation between 
-* [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect)
-* [tmux-open](https://github.com/tmux-plugins/tmux-open)
+* [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) - store & restore complete state
+* [tmux-open](https://github.com/tmux-plugins/tmux-open) - open urls and file in tmux copy mode 
 
 
 ## Commands
