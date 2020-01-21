@@ -36,7 +36,6 @@ fittest editor.
 * [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) 
 seamless navigation between 
 * [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect)
-* [tmux-copycat](https://github.com/tmux-plugins/tmux-copycat)
 * [tmux-open](https://github.com/tmux-plugins/tmux-open)
 
 
