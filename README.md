@@ -27,19 +27,17 @@ fittest editor.
 * [direnv](https://direnv.net/) - shell extension for loading local env vars
 * [antibody](http://getantibody.github.io/) - zsh plugin manager
 * [tpm](https://github.com/tmux-plugins/tpm) - tmux plugin manager
+* [fugitive](https://github.com/tpope/vim-fugitive) - a git plugin so good it should be illegal
 * [liquid prompt](https://github.ocm/nojhan/liquidprompt) - the best prompt, ever
 * [alias-tips](https://github.com/djui/alias-tips) - reminding you of aliases
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 * [zsh-completions](https://github.com/zsh-users/zsh-completions) - for missing completions
-* [tpm](https://github.com/tmux-plugins/tpm) - tmux plugin manager
-* [tmux-sensible](https://github.com/tmux-plugins/tmux-sensible) - sensible settings
 * [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) 
 seamless navigation between 
 * [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) - store & restore complete state
-* [tmux-open](https://github.com/tmux-plugins/tmux-open) - open urls and file in tmux copy mode 
 
 
-## Commands
+## Aliases
 
 * `hi` - to print last 100 commands
 * `vi` - for neovim
