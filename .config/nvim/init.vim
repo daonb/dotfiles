@@ -13,7 +13,6 @@ Plug 'tpope/vim-obsession'
 Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
-Plug 'junegunn/fzf.vim'
 call plug#end()
 filetype plugin indent on    " required
 syntax on
