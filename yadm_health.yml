@@ -1,0 +1,15 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run a multi-line script
+      run: |
+        apt install git yadm
+        yadm clone --botstrap https://github.com/$GITHUB_REPOSITORY
+        nvim '+checkhealth'
