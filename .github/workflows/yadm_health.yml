@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Run a multi-line script
+    - name: Get yadm and install the files
       run: |
-        apt install git yadm
+        sudo apt-get install yadm
         yadm clone --botstrap https://github.com/$GITHUB_REPOSITORY
         nvim '+checkhealth'
