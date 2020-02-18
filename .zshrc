@@ -41,6 +41,3 @@ if [ $(uname -s) = "Darwin" ]; then
 else
     fortune | cowsay -f $(find  "/usr/share/cowsay/cows/" | shuf | head -1) -n
 fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias ft='fzf-tmux'
