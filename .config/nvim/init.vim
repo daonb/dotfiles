@@ -7,7 +7,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
-" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'master' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-obsession'
@@ -34,9 +33,6 @@ set number
 
 let mapleader = ","
 let python_highlight_all=1
-"TODO: figure out what the next lines do and remove them or uncomment
-"let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_checkers = ['jshint']
