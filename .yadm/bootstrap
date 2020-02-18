@@ -54,5 +54,5 @@ else
 fi
 # termino
 tic "$HOME/.terminfo/xterm-256color-italic.terminfo"
-echo "Please enter you password to make zsh your default shell."
-chsh -s "$(command -v zsh)"
+echo ">>> Please enter you password to make zsh your default shell."
+chsh -s "$(command -v zsh)" || echo "*** Failed to chsh, please run it manually"  
