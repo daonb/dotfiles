@@ -11,5 +11,5 @@ jobs:
     - name: Get yadm and install the files
       run: |
         sudo apt-get install yadm
-        yadm clone --botstrap https://github.com/$GITHUB_REPOSITORY
+        yadm clone --bootstrap https://github.com/$GITHUB_REPOSITORY
         nvim '+checkhealth'
