@@ -5,7 +5,10 @@ on: [push]
 jobs:
   build:
 
-    runs-on: [ubuntu-latest, macos-10.15]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-10.15]
 
     steps:
     - name: Get yadm and install the files
