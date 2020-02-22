@@ -29,8 +29,6 @@ bindkey '^[[B' down-line-or-search
 alias vi=nvim
 alias hi="history -100"
 alias ab="antibody"
-alias ide='[ -z "$TMUX" ] && [ -z "$VIM" ] && tmux new-session -ADs afide'
-alias dide="docker run -ti afide tmux new-session -ADs afide "
 alias ll="ls -l --color"
 alias zshc='nvim "$HOME/.zshrc"'
 alias vic='nvim "$HOME/.config/nvim/init.vim"'
