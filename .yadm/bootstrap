@@ -19,9 +19,8 @@ else
     sudo apt-get install -y `cat Aptfile`
     curl https://nodejs.org/dist/v12.16.1/node-v12.16.1-linux-x64.tar.xz | tar x
     mv node-v12.16.1-linux-x64 node
-    export PATH=$HOME/node/bin:$PATH
     sudo curl -sfLo /usr/local/bin/nvim \
-        https://github.com/neovim/neovim/releases/download/v0.3.8/nvim.appimage
+        https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage
     sudo chmod +x /usr/local/bin/nvim
     if ! command -v antibody >/dev/null 2>&1; then
         curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
