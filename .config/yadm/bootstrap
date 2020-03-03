@@ -55,5 +55,11 @@ else
 fi
 # termino
 tic "$HOME/.terminfo/xterm-256color-italic.terminfo"
-echo ">>> Please enter you password to make zsh your default shell."
-chsh -s "$(command -v zsh)" || echo "*** Failed to chsh, please run it manually"  
+# changing the shell to zsh for interactive sessions only
+case $- in
+  *) echo "Running in a script, not changing default shell"
+     ;;
+  *i*) echo ">>> Please enter you password to make zsh your default shell."
+    chsh -s "$(command -v zsh)" || echo "*** Failed to chsh, please run it manually"  
+    ;;  
+esac
