@@ -1,4 +1,4 @@
-name: CI
+name: darwin_test
 on: [push]
 jobs:
   build:
@@ -7,5 +7,6 @@ jobs:
     - name: Get yadm and install the files
       run: |
         brew install git yadm
-        yadm clone --bootstrap https://github.com/$GITHUB_REPOSITORY
+        yadm clone --no-bootstrap https://github.com/$GITHUB_REPOSITORY
+        .yadm/bootstrap
         nvim -es +checkhealth
