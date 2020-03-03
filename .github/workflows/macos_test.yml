@@ -8,5 +8,6 @@ jobs:
       run: |
         brew install git yadm
         yadm clone --no-bootstrap https://github.com/$GITHUB_REPOSITORY
-        .yadm/bootstrap
+        yadm list
+        bash ~/.yadm/bootstrap
         nvim -es +checkhealth
