@@ -12,7 +12,7 @@ if [ "$system_type" = "Darwin" ]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
     echo "Updating homebrew bundles"
-    cd "$HOME" && brew doctor && brew bundle --global
+    cd "$HOME" && brew doctor && brew bundle
 else
     # [ ! -z "$sudo" ] && echo "Updating system package requires you pass"
     sudo apt-get update 
