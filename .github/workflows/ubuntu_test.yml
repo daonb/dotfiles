@@ -1,0 +1,11 @@
+name: unbuntu_test
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get yadm and install the files
+      run: |
+        sudo apt-get install git yadm
+        yadm clone --bootstrap https://github.com/$GITHUB_REPOSITORY
+        nvim -es +checkhealth

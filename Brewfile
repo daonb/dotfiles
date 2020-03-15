@@ -24,14 +24,6 @@ brew 'htop'
 brew 'neovim'
 brew 'fortune'
 brew 'cowsay'
-
-# Zsh
 brew 'zsh'
 brew 'getantibody/tap/antibody'
 brew 'direnv'
-
-# Dev
-brew 'git'
-brew 'jq'
-brew 'fzf'
-

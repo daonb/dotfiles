@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+set -x
+
 cd "$HOME" || exit
 
 system_type=$(uname -s)
@@ -9,18 +12,29 @@ if [ "$system_type" = "Darwin" ]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
     echo "Updating homebrew bundles"
-    cd "$HOME" && brew doctor && brew bundle --global
+    cd "$HOME" && brew doctor && brew bundle
 else
+<<<<<<< HEAD:.config/yadm/bootstrap
     # sudo apt-get update 
     sudo apt-get install -y python python-pip python3 python3-pip \
          nodejs tmux zsh direnv curl fortune cowsay
     sudo curl -sfLo /usr/local/bin/nvim \
         https://github.com/neovim/neovim/releases/download/v0.3.8/nvim.appimage
+=======
+    # [ ! -z "$sudo" ] && echo "Updating system package requires you pass"
+    sudo apt-get update 
+    sudo apt-get install -y `cat Aptfile`
+    curl https://nodejs.org/dist/v12.16.1/node-v12.16.1-linux-x64.tar.xz | tar x
+    mv node-v12.16.1-linux-x64 node
+    sudo curl -sfLo /usr/local/bin/nvim \
+        https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage
+>>>>>>> master:.config/yadm/bootstrap
     sudo chmod +x /usr/local/bin/nvim
     if ! command -v antibody >/dev/null 2>&1; then
         curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
     fi
 fi
+<<<<<<< HEAD:.config/yadm/bootstrap
 # node
 sudo npm install -g n
 sudo n stable
@@ -30,11 +44,14 @@ if [ -d "~/.fzf" ]; then
     # TODO: copy key beinding from the install script
     ~/.fzf/install --no-key-bindings --no-completion --no-update-rc --no-bash --no-fish --no-zsh
 fi
+=======
+>>>>>>> master:.config/yadm/bootstrap
 # neovim's plug manager
 if [ ! -f "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
 	curl -sfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+<<<<<<< HEAD:.config/yadm/bootstrap
 curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
 python3 /tmp/get-pip.py
 python3 -m pip install --user neovim
@@ -50,6 +67,17 @@ sudo npm install -g how-2
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 
 # neovim plugins update
+=======
+
+# neovim's python libraries
+python3 -m pip install --user --upgrade pip setuptools wheel
+python3 -m pip install --user --upgrade pynvim
+python2 -m pip install --user --upgrade pip setuptools wheel
+python2 -m pip install --user --upgrade pynvim
+sudo npm install -g neovim
+
+# Running neovim to update the plugins
+>>>>>>> master:.config/yadm/bootstrap
 nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
 
 # tmux plugins update
@@ -65,5 +93,11 @@ else
 fi
 # termino
 tic "$HOME/.terminfo/xterm-256color-italic.terminfo"
-echo "Please enter you password to make zsh your default shell."
-chsh -s "$(command -v zsh)"
+# changing the shell to zsh for interactive sessions only
+case $- in
+  *) echo "Running in a script, not changing default shell"
+     ;;
+  *i*) echo ">>> Please enter you password to make zsh your default shell."
+    chsh -s "$(command -v zsh)" || echo "*** Failed to chsh, please run it manually"  
+    ;;  
+esac
