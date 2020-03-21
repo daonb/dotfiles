@@ -1,5 +1,5 @@
 set nocompatible              " required by neovim
-filetype plugin indent on
+fffffiletype plugin indent on
 syntax on
 " General settings
 set colorcolumn=80  " Where to draw the line
