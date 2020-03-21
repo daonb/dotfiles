@@ -6,13 +6,13 @@ jobs:
     steps:
     - name: Get yadm
       run: |
-        curl -fLo /usr/local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x /usr/local/bin/yadm
+        curl -fLo yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x yadm
     - name: Clone the dot files
       run: |
-        yadm clone --no-bootstrap https://github.com/$GITHUB_REPOSITORY
+        ./yadm clone --no-bootstrap https://github.com/$GITHUB_REPOSITORY
     - name: Run bootstrap
       run: |
-        yadm bootstrap
+        ./yadm bootstrap
     - name: Test neovim installation
       run: |
         nvim -es +checkhealth
