@@ -4,8 +4,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Get yadm and install the files
+    - name: Get yadm and git
       run: |
         sudo apt-get install git yadm
-        yadm clone --bootstrap https://github.com/$GITHUB_REPOSITORY
+    - name: Clone the dot files
+      run: |
+        yadm clone --no-bootstrap https://github.com/$GITHUB_REPOSITORY
+    - name: Run bootstrap
+      run: |
+        yadm bootstrap
+    - name: Test neovim installation
+      run: |
         nvim -es +checkhealth
