@@ -1,5 +1,5 @@
 set nocompatible              " required by neovim
-fffffiletype plugin indent on
+filetype plugin indent on
 syntax on
 " General settings
 set colorcolumn=80  " Where to draw the line
@@ -32,6 +32,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf.vim'
+Plug 'fatih/vim-go'
 call plug#end()
 " Mappings
 nnoremap <C-J> <C-W><C-J>

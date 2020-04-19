@@ -7,7 +7,7 @@ export HISTSIZE=5000
 export SAVEHIST=5000
 export LC_ALL=en_US.UTF-8
 export ANTIBODY_HOME=~/Libary/antibody
-export PATH="/snap/bin:$HOME/node/bin:$PATH"
+export PATH="$HOME/go/bin:$HOME/node/bin:/usr/local/go/bin:/snap/bin:$PATH"
 # TODO: do we need this?
 if [ -d "/usr/local/opt/openssl/lib" ]; then 
     export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl/lib/"
