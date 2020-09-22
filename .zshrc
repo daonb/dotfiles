@@ -30,7 +30,11 @@ setopt histexpiredupsfirst
 alias vi=nvim
 alias hi="history -100"
 alias ab="antibody"
-alias ll="ls -l --color"
+if [ $(uname -s) = "Darwin" ]; then
+    alias ll="ls -lG"
+else
+    alias ll="ls -l --color"
+fi
 alias zshc='nvim "$HOME/.zshrc"'
 alias vic='nvim "$HOME/.config/nvim/init.vim"'
 alias tmuxc='nvim "$HOME/.tmux.conf"'
@@ -43,6 +47,7 @@ else
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias ft='fzf-tmux'
+autoload -Uz compinit && compinit
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
