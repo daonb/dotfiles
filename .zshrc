@@ -22,7 +22,7 @@ bindkey -v
 bindkey -M vicmd '?' history-incremental-search-backward
 # History
 setopt extendedhistory
-setopt appendhistory
+# setopt appendhistory
 setopt sharehistory
 setopt histexpiredupsfirst
 # bindkey '^[[A' up-line-or-search
