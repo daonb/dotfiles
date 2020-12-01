@@ -28,7 +28,7 @@ fittest editor.
 * [antibody](http://getantibody.github.io/) - zsh plugin manager
 * [tpm](https://github.com/tmux-plugins/tpm) - tmux plugin manager
 * [fugitive](https://github.com/tpope/vim-fugitive) - a git plugin so good it should be illegal
-* [liquid prompt](https://github.ocm/nojhan/liquidprompt) - the best prompt, ever
+* [pure prompt](https://github.ocm/sindresorhus/pure) - a light prompt
 * [alias-tips](https://github.com/djui/alias-tips) - reminding you of aliases
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 * [zsh-completions](https://github.com/zsh-users/zsh-completions) - for missing completions

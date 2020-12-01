@@ -48,6 +48,22 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias ft='fzf-tmux'
 autoload -Uz compinit && compinit
+# pure prompt
+autoload -U promptinit; promptinit
+zstyle :prompt:pure:git:stash show yes
+zstyle :prompt:pure:user color '#00FAFA'
+zstyle :prompt:pure:host color '#00FAFA'
+zstyle :prompt:pure:git:branch color '#00FA00'
+zstyle :prompt:pure:git:dirty color '#F952F9'
+zstyle :prompt:pure:git:action color '#00FAFA'
+zstyle :prompt:pure:git:arrow color '#00FAFA'
+zstyle :prompt:pure:git:stash color '#00FAFA'
+zstyle :prompt:pure:execution_time color '#00FAFA'
+zstyle :prompt:pure:virtualenv color '#00FAFA'
+zstyle :prompt:pure:prompt:success color '#D9F505'
+zstyle :prompt:pure:prompt:error color '#F952F9'
+zstyle :prompt:pure:prompt:continuation color '#00FAFA'
+prompt pure
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
