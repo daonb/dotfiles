@@ -63,6 +63,7 @@ zstyle :prompt:pure:virtualenv color '#00FAFA'
 zstyle :prompt:pure:prompt:success color '#D9F505'
 zstyle :prompt:pure:prompt:error color '#F952F9'
 zstyle :prompt:pure:prompt:continuation color '#00FAFA'
+export PURE_PROMPT_SYMBOL=%%
 prompt pure
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
