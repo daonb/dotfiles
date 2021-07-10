@@ -7,7 +7,8 @@ export HISTSIZE=5000
 export SAVEHIST=5000
 export LC_ALL=en_US.UTF-8
 export ANTIBODY_HOME=~/Libary/antibody
-export PATH="$HOME/go/bin:$HOME/node/bin:/usr/local/go/bin:/snap/bin:$PATH"
+export GO11MODULE=on
+export PATH="/usr/local/bin:$HOME/go/bin:$HOME/node/bin:/usr/local/go/bin:/snap/bin:/sbin:$PATH"
 # TODO: do we need this?
 if [ -d "/usr/local/opt/openssl/lib" ]; then 
     export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl/lib/"
@@ -41,7 +42,7 @@ alias tmuxc='nvim "$HOME/.tmux.conf"'
 alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 # Welcome message - fortune piped into a random cow
 if [ $(uname -s) = "Darwin" ]; then
-    fortune | cowsay -f $(find "/usr/local/Cellar/cowsay/3.04/share/" | sort -R | head -1) -n
+    fortune | cowsay -f /usr/local/Cellar/cowsay/3.04/share/cows/kosh.cow
 else
     fortune | cowsay -f $(find  "/usr/share/cowsay/cows/" | shuf | head -1) -n
 fi
@@ -64,8 +65,16 @@ zstyle :prompt:pure:prompt:success color '#D9F505'
 zstyle :prompt:pure:prompt:error color '#F952F9'
 zstyle :prompt:pure:prompt:continuation color '#00FAFA'
 export PURE_PROMPT_SYMBOL=%%
+export PURE_GIT_UNTRACKED_DIRTY=0
+export PURE_GIT_STASH_SYMBOL=" "
 prompt pure
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/daonb/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/daonb/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/daonb/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/daonb/google-cloud-sdk/completion.zsh.inc'; fi
