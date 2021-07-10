@@ -18,13 +18,13 @@ else
     sudo apt-get update 
     sudo apt-get install -y `cat $HOME/Aptfile`
     sudo curl -sfLo /usr/local/bin/nvim \
-        https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage
+        https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage
     sudo chmod +x /usr/local/bin/nvim
     if ! command -v antibody >/dev/null 2>&1; then
         curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
     fi
     curl https://nodejs.org/dist/v12.16.1/node-v12.16.1-linux-x64.tar.xz | tar x
-    ln -s node-v12.16.1-linux-x64 node
+    mv node-v12.16.1-linux-x64 /usr/local/bin/node
 fi
 # go
 go get golang.org/x/tools/gopls@latest
