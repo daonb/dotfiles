@@ -1,6 +1,3 @@
-set nocompatible              " required by neovim
-filetype plugin indent on
-syntax on
 " General settings
 set colorcolumn=80  " Where to draw the line
 set tabstop=4       " Default is 8
@@ -12,7 +9,6 @@ set laststatus=2
 set statusline=%4l:%3c/%4L:\ %f
 set statusline+=%#warningmsg#
 set statusline+=%*
-set encoding=utf-8
 set clipboard=unnamed
 set ignorecase smartcase
 set relativenumber
