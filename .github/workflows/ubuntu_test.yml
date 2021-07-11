@@ -6,7 +6,7 @@ jobs:
     steps:
     - name: Get yadm
       run: |
-        apt-get update && apt-get install yadm
+        curl -fLo yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x yadm
     - name: Clone the dot files
       run: |
         ./yadm clone --bootstrap https://github.com/$GITHUB_REPOSITORY
