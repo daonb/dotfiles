@@ -21,6 +21,9 @@ set foldmethod=indent
 set foldlevel=99
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go'
 Plug 'neovim/nvim-lspconfig'
