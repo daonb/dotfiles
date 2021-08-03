@@ -1,6 +1,10 @@
 " General settings
+syntax on
+set noswapfile
+set nobackup
+set incsearch
 set colorcolumn=80  " Where to draw the line
-set tabstop=4       " Default is 8
+set tabstop=4 softtabstop=4      " Default is 8
 set shiftwidth=0    " Use the tabsto
 set softtabstop=-1  " Use shiftwidth's valie
 set scrolloff=5
@@ -14,6 +18,8 @@ set ignorecase smartcase
 set relativenumber
 set number
 set cursorline
+set undodir=~/.vim/undodir
+set undofile
 let mapleader = ","
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
