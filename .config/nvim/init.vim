@@ -13,7 +13,6 @@ set laststatus=2
 set statusline=%4l:%3c/%4L:\ %f
 set statusline+=%#warningmsg#
 set statusline+=%*
-set clipboard=unnamed
 set ignorecase smartcase
 set relativenumber
 set number
@@ -37,9 +36,8 @@ call plug#end()
 nnoremap <space> za
 color elflord
 highlight ColorColumn ctermbg=DarkMagenta
-highlight CursorLine cterm=NONE ctermbg=DarkMagenta 
 
-" python language server
+" neovim language server
 lua << EOF
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.denols.setup{}

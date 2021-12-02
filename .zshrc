@@ -13,9 +13,13 @@ export PATH="/usr/local/bin:$HOME/go/bin:$HOME/node/bin:/usr/local/go/bin:/snap/
 if [ -d "/usr/local/opt/openssl/lib" ]; then 
     export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl/lib/"
 fi
-# antibody - zsh plugins FTW
-source <(antibody init)
-antibody bundle < ~/.zsh_plugins
+# antigen - loading zsh plugins
+source $HOME/.zsh/antigen.zsh
+antigen bundle mafredri/zsh-async
+antigen bundle djui/alias-tips
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen apply
 # direnv - loading a local .envrc on cd
 eval "$(direnv hook zsh)"
 # *** A Fittest IDE ***
@@ -46,11 +50,10 @@ if [ $(uname -s) = "Darwin" ]; then
 else
     fortune | cowsay -f $(find  "/usr/share/cowsay/cows/" | shuf | head -1) -n
 fi
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias ft='fzf-tmux'
-autoload -Uz compinit && compinit
+
+eval "$(starship init zsh)"
+
 # pure prompt
-autoload -U promptinit; promptinit
 zstyle :prompt:pure:git:stash show yes
 zstyle :prompt:pure:user color '#00FAFA'
 zstyle :prompt:pure:host color '#00FAFA'
@@ -64,10 +67,6 @@ zstyle :prompt:pure:virtualenv color '#00FAFA'
 zstyle :prompt:pure:prompt:success color '#D9F505'
 zstyle :prompt:pure:prompt:error color '#F952F9'
 zstyle :prompt:pure:prompt:continuation color '#00FAFA'
-export PURE_PROMPT_SYMBOL=%%
-export PURE_GIT_UNTRACKED_DIRTY=0
-export PURE_GIT_STASH_SYMBOL=" "
-prompt pure
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -78,3 +77,6 @@ if [ -f '/Users/daonb/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/daonb/goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/daonb/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/daonb/google-cloud-sdk/completion.zsh.inc'; fi
+
+ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

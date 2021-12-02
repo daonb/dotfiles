@@ -20,12 +20,14 @@ else
     sudo curl -sfLo /usr/local/bin/nvim \
         https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage
     sudo chmod +x /usr/local/bin/nvim
-    if ! command -v antibody >/dev/null 2>&1; then
-        curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
-    fi
     curl https://nodejs.org/dist/v12.16.1/node-v12.16.1-linux-x64.tar.xz | tar x
     mv node-v12.16.1-linux-x64 /usr/local/bin/node
 fi
+# antigen, the zsh pluging manager
+mkdir -p $HOME/.zsh
+curl -L git.io/antigen > $HOME/.zsh/antigen.zsh
+# pure prompt
+git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
 # go
 go get golang.org/x/tools/gopls@latest
 # node
@@ -65,6 +67,7 @@ else
     cd "$HOME/.tmux/plugins/tpm" || git pull -p
     cd "$HOME" || "$HOME"/.tmux/plugins/tpm/bin/update_plugins all
 fi
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 # termino
 tic "$HOME/.terminfo/xterm-256color-italic.terminfo"
 # changing the shell to zsh for interactive sessions only
@@ -75,3 +78,4 @@ case $- in
     chsh -s "$(command -v zsh)" || echo "*** Failed to chsh, please run it manually"  
     ;;  
 esac
+
