@@ -9,6 +9,10 @@ export LC_ALL=en_US.UTF-8
 export ANTIBODY_HOME=~/Libary/antibody
 export GO11MODULE=on
 export PATH="/usr/local/bin:$HOME/go/bin:$HOME/node/bin:/usr/local/go/bin:/snap/bin:/sbin:$PATH"
+
+if [ -d "/usr/games" ]; then
+    export PATH="/usr/games:$PATH"
+fi
 # TODO: do we need this?
 if [ -d "/usr/local/opt/openssl/lib" ]; then 
     export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl/lib/"
