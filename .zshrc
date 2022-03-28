@@ -39,11 +39,7 @@ setopt histexpiredupsfirst
 alias vi=nvim
 alias hi="history -5000 | grep $1"
 alias ab="antibody"
-if [ $(uname -s) = "Darwin" ]; then
-    alias ll="ls -lG"
-else
-    alias ll="ls -l --color"
-fi
+alias ll="lsd -l"
 alias zshc='nvim "$HOME/.zshrc"'
 alias vic='nvim "$HOME/.config/nvim/init.vim"'
 alias tmuxc='nvim "$HOME/.tmux.conf"'
