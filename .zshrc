@@ -37,7 +37,7 @@ setopt histexpiredupsfirst
 # bindkey '^[[A' up-line-or-search
 # bindkey '^[[B' down-line-or-search
 alias vi=nvim
-alias hi="history -100"
+alias hi="history -5000 | grep $1"
 alias ab="antibody"
 if [ $(uname -s) = "Darwin" ]; then
     alias ll="ls -lG"
