@@ -34,9 +34,10 @@ Plug 'fatih/vim-go'
 Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim', {'branch': 'main'}
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils', {'branch': 'main'}
+Plug 'Mofiqul/dracula.nvim', {'branch': 'main'}
 call plug#end()
 nnoremap <space> za
-color elflord
+color dracula
 highlight ColorColumn ctermbg=DarkMagenta
 
 " neovim language server
