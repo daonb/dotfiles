@@ -35,6 +35,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim', {'branch': 'main'}
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils', {'branch': 'main'}
 Plug 'Mofiqul/dracula.nvim', {'branch': 'main'}
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 nnoremap <space> za
 color dracula
@@ -42,6 +44,7 @@ highlight ColorColumn ctermbg=DarkMagenta
 
 " neovim language server
 lua << EOF
+require('lualine').setup()
 local lspconfig = require('lspconfig')
 require'lspconfig'.pyright.setup{}
 -- require'lspconfig'.quick_lint_js.setup{}
