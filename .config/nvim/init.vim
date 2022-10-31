@@ -34,7 +34,7 @@ Plug 'fatih/vim-go'
 Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim', {'branch': 'main'}
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils', {'branch': 'main'}
-Plug 'Mofiqul/dracula.nvim', {'branch': 'main'}
+Plug 'dracula/vim', {'name': 'main'}
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
