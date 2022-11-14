@@ -34,12 +34,12 @@ Plug 'fatih/vim-go'
 Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim', {'branch': 'main'}
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils', {'branch': 'main'}
-Plug 'dracula/vim', {'name': 'main'}
+Plug 'joshdick/onedark.vim', {'branch': 'main'}
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 nnoremap <space> za
-color dracula
+color onedark
 highlight ColorColumn ctermbg=DarkMagenta
 
 " neovim language server
