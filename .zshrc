@@ -55,20 +55,22 @@ fi
 
 eval "$(starship init zsh)"
 
-# pure prompt
-zstyle :prompt:pure:git:stash show yes
-zstyle :prompt:pure:user color '#00FAFA'
-zstyle :prompt:pure:host color '#00FAFA'
-zstyle :prompt:pure:git:branch color '#00FA00'
-zstyle :prompt:pure:git:dirty color '#F952F9'
-zstyle :prompt:pure:git:action color '#00FAFA'
-zstyle :prompt:pure:git:arrow color '#00FAFA'
-zstyle :prompt:pure:git:stash color '#00FAFA'
-zstyle :prompt:pure:execution_time color '#00FAFA'
-zstyle :prompt:pure:virtualenv color '#00FAFA'
-zstyle :prompt:pure:prompt:success color '#D9F505'
-zstyle :prompt:pure:prompt:error color '#F952F9'
-zstyle :prompt:pure:prompt:continuation color '#00FAFA'
+# Set the color palette
+function set_color {
+  eval "$1=$2"
+}
+
+set_color fuchsia "#F952F9"
+set_color turquoise "#00FAFA"
+set_color purple "#271D30"
+set_color yellow "#F4DB53"
+
+# Set the prompt colors
+set_color prompt_symbol_color $fuchsia
+set_color hostname_color $turquoise
+set_color dir_color $purple
+set_color username_color $yellow
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"

@@ -32,19 +32,22 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go'
 Plug 'neovim/nvim-lspconfig'
-Plug 'jose-elias-alvarez/null-ls.nvim', {'branch': 'main'}
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils', {'branch': 'main'}
 Plug 'joshdick/onedark.vim', {'branch': 'main'}
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'mfussenegger/nvim-dap'
+Plug 'leoluz/nvim-dap-go', {'branch': 'main'}
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'github/copilot.vim'
 call plug#end()
 nnoremap <space> za
-color onedark
+source ~/.config/nvim/terminal7.vim
 highlight ColorColumn ctermbg=DarkMagenta
 
 " neovim language server
 lua << EOF
-require('lualine').setup()
+require('lualine').setup{ theme = 'auto' }
 local lspconfig = require('lspconfig')
 require'lspconfig'.pyright.setup{}
 -- require'lspconfig'.quick_lint_js.setup{}
@@ -113,16 +116,6 @@ lspconfig.tsserver.setup({
         buf_map(bufnr, "n", "go", ":TSLspImportAll<CR>")
         on_attach(client, bufnr)
     end,
-})
-
-local null_ls = require("null-ls")
-null_ls.setup({
-    sources = {
-        null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.code_actions.eslint,
-        null_ls.builtins.formatting.prettier
-    },
-    on_attach = on_attach
 })
 
 EOF
