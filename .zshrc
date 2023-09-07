@@ -37,6 +37,7 @@ setopt extendedhistory
 # setopt appendhistory
 setopt sharehistory
 setopt histexpiredupsfirst
+unsetopt PROMPT_CR
 # bindkey '^[[A' up-line-or-search
 # bindkey '^[[B' down-line-or-search
 alias vi=nvim
