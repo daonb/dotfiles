@@ -8,7 +8,6 @@ export SAVEHIST=50000
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export ANTIBODY_HOME=~/Libary/antibody
 export GO11MODULE=on
 export PATH="/usr/local/bin:$HOME/go/bin:$HOME/node/bin:/usr/local/go/bin:/snap/bin:/sbin:$PATH"
 export CHAMBER_KMS_KEY_ALIAS=aws/ssm
@@ -42,13 +41,13 @@ unsetopt PROMPT_CR
 # bindkey '^[[B' down-line-or-search
 alias vi=nvim
 alias hi="history -5000 | grep $1"
-alias ab="antibody"
 alias ll="lsd -l"
 alias zshc='nvim "$HOME/.zshrc"'
 alias vic='nvim "$HOME/.config/nvim/init.vim"'
 alias tmuxc='nvim "$HOME/.tmux.conf"'
 alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gdb="arch -arm64 dlv debug"
+alias got="go test -v -race -coverprofile=coverage.txt -covermode=atomic"
 # Welcome message - fortune piped into a random cow
 if [ $(uname -s) = "Darwin" ]; then
     export PATH="/opt/homebrew/bin:$PATH"
