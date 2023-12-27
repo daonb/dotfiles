@@ -15,6 +15,9 @@ export CHAMBER_KMS_KEY_ALIAS=aws/ssm
 if [ -d "/usr/games" ]; then
     export PATH="/usr/games:$PATH"
 fi
+if [ $(uname -s) = "Darwin" ]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+fi
 # TODO: do we need this?
 if [ -d "/usr/local/opt/openssl/lib" ]; then 
     export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl/lib/"
@@ -48,9 +51,10 @@ alias tmuxc='nvim "$HOME/.tmux.conf"'
 alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gdb="arch -arm64 dlv debug"
 alias got="go test -v -race -coverprofile=coverage.txt -covermode=atomic"
+alias llm="python3 -m llm"
+alias imgcat="python3 -m imgcat"
 # Welcome message - fortune piped into a random cow
 if [ $(uname -s) = "Darwin" ]; then
-    export PATH="/opt/homebrew/bin:$PATH"
     fortune | cowsay -f /usr/local/Cellar/cowsay/3.04/share/cows/kosh.cow
 else
     fortune | cowsay -f $(find  "/usr/share/cowsay/cows/" | shuf | head -1) -n
