@@ -49,8 +49,5 @@ return require('packer').startup(function(use)
 		  {'rafamadriz/friendly-snippets'},
 	  }
   }
-  use { "zbirenbaum/copilot.lua" ,
-      cmd = "Copilot",
-      event = "InsertEnter",
-  }
+  use {'github/copilot.vim', branch = 'release' }
 end)
