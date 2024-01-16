@@ -9,7 +9,7 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export GO11MODULE=on
-export PATH="/usr/local/bin:$HOME/go/bin:$HOME/node/bin:/usr/local/go/bin:/snap/bin:/sbin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/node/bin:/usr/local/go/bin:/snap/bin:/sbin:$PATH"
 export CHAMBER_KMS_KEY_ALIAS=aws/ssm
 
 if [ -d "/usr/games" ]; then
@@ -53,6 +53,9 @@ alias gdb="arch -arm64 dlv debug"
 alias got="go test -v -race -coverprofile=coverage.txt -covermode=atomic"
 alias llm="python3 -m llm"
 alias imgcat="python3 -m imgcat"
+# django (python framework) related aliases
+alias m="poetry run python manage.py"
+alias r="poetry run python manage.py runserver"
 # Welcome message - fortune piped into a random cow
 if [ $(uname -s) = "Darwin" ]; then
     fortune | cowsay -f /usr/local/Cellar/cowsay/3.04/share/cows/kosh.cow
