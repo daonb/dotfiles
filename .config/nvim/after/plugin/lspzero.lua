@@ -1,14 +1,14 @@
-local lsp = require('lsp-zero').preset({})
+local lsp_zero = require('lsp-zero')
+
+lsp_zero.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp_zero.default_keymaps({buffer = bufnr})
+end)
+
 local lspconfig = require('lspconfig')
 lspconfig.tsserver.setup {}
-
--- lsp.on_attach(function(client, bufnr)
-  -- lsp.default_keymaps({buffer = bufnr})
--- end)
-
-lspconfig["gopls"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
+lspconfig.gopls.setup({})
+lspconfig.pyright.setup({
+    pythonPath= "/Users/daonb/Library/Caches/pypoetry/virtualenvs/vault-RT5-Ioyu-py3.10/bin/python"
 })
-
-lspconfig["pylyzer"].setup({})

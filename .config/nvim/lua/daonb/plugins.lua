@@ -22,14 +22,20 @@ return require('packer').startup(function(use)
         requires = { "nvim-lua/plenary.nvim" },
   })
   -- use('jose-elias-alvarez/typescript.nvim')
+    use { "jackMort/ChatGPT.nvim",
+        requires = {
+          "MunifTanjim/nui.nvim",
+          "nvim-lua/plenary.nvim",
+          "nvim-telescope/telescope.nvim"
+        }
+    }
 
-
-  use({'nvim-lualine/lualine.nvim',
+  use {'nvim-lualine/lualine.nvim',
           requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-  })
+  }
   use {
 	  'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v2.x',
+	  branch = 'v3.x',
 	  requires = {
 		  -- LSP Support
 		  {'neovim/nvim-lspconfig'},
@@ -49,5 +55,9 @@ return require('packer').startup(function(use)
 		  {'rafamadriz/friendly-snippets'},
 	  }
   }
+  use 'mfussenegger/nvim-dap'
+  use 'mfussenegger/nvim-dap-python'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use {'github/copilot.vim', branch = 'release' }
+
 end)

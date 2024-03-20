@@ -22,13 +22,6 @@ fi
 if [ -d "/usr/local/opt/openssl/lib" ]; then 
     export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl/lib/"
 fi
-# antigen - loading zsh plugins
-source $HOME/.zsh/antigen.zsh
-antigen bundle mafredri/zsh-async
-antigen bundle djui/alias-tips
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen apply
 # direnv - loading a local .envrc on cd
 eval "$(direnv hook zsh)"
 # *** A Fittest IDE ***
@@ -44,24 +37,17 @@ unsetopt PROMPT_CR
 # bindkey '^[[B' down-line-or-search
 alias vi=nvim
 alias hi="history -5000 | grep $1"
-alias ll="lsd -l"
+alias ll="lsd -l -I '**/__pycache__'"
 alias zshc='nvim "$HOME/.zshrc"'
 alias vic='nvim "$HOME/.config/nvim/init.vim"'
 alias tmuxc='nvim "$HOME/.tmux.conf"'
 alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gdb="arch -arm64 dlv debug"
 alias got="go test -v -race -coverprofile=coverage.txt -covermode=atomic"
-alias llm="python3 -m llm"
 alias imgcat="python3 -m imgcat"
 # django (python framework) related aliases
 alias m="poetry run python manage.py"
-alias r="poetry run python manage.py runserver"
-# Welcome message - fortune piped into a random cow
-if [ $(uname -s) = "Darwin" ]; then
-    fortune | cowsay -f /usr/local/Cellar/cowsay/3.04/share/cows/kosh.cow
-else
-    fortune | cowsay -f $(find  "/usr/share/cowsay/cows/" | shuf | head -1) -n
-fi
+alias r="poetry run python manage.py runserver --settings elucd_vault.dev_settings"
 
 eval "$(starship init zsh)"
 
@@ -94,3 +80,27 @@ if [ -f '/Users/daonb/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dao
 
  export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# Welcome message - fortune piped into a random cow or a plain one on mac
+if [ -d /usr/share/cowsay/cows ]; then
+    fortune | cowsay -f $(find  /usr/share/cowsay/cows | shuf | head -1) -n
+else
+    fortune | cowsay
+fi
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+# loading zsh plugins
+zinit light-mode for \
+    djui/alias-tips \
+    zsh-users/zsh-completions \
+    zsh-users/zsh-syntax-highlighting
