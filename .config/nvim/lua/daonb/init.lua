@@ -72,4 +72,22 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
+vim.g.clipboard = {
+    name = 'webexec',
+    copy = {
+        ["+"] = {'webexec', 'copy'},
+        ["*"] = {'webexec', 'copy'},
+    },
+    paste = {
+        ["+"] = {'webexec', 'paste'},
+        ["*"] = {'webexec', 'paste'},
+    },
+    cache_enabled = true,
+}
+vim.cmd [[
+hi diffText ctermfg=188 ctermbg=64 cterm=bold guifg=#FFFFFF guibg=#303030 gui=bold
+hi diffAdded ctermfg=188 ctermbg=64 cterm=bold guifg=#50FA7B guibg=#303030 gui=bold
+hi diffChange ctermfg=188 ctermbg=NONE cterm=bold guifg=#50FA7B guibg=#303030 gui=bold
+hi diffRemoved ctermfg=88 ctermbg=NONE cterm=NONE guifg=#FA5057 guibg=#303030 gui=NONE
+]]
 
