@@ -7,7 +7,7 @@ lsp_zero.on_attach(function(client, bufnr)
 end)
 
 local lspconfig = require('lspconfig')
-lspconfig.tsserver.setup {}
+lspconfig["ts_ls"].setup({})
 lspconfig.gopls.setup({})
 lspconfig.pyright.setup({
     pythonPath= "/Users/daonb/Library/Caches/pypoetry/virtualenvs/vault-RT5-Ioyu-py3.10/bin/python"

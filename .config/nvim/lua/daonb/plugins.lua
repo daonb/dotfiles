@@ -59,10 +59,16 @@ return require('packer').startup(function(use)
   use 'mfussenegger/nvim-dap-python'
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use {'github/copilot.vim', branch = 'release' }
-  use({
+  use {
       "nvim-treesitter/nvim-treesitter-textobjects",
       after = "nvim-treesitter",
       requires = "nvim-treesitter/nvim-treesitter",
-  })
+  } 
   use 'nvim-treesitter/nvim-treesitter-context'
+  use {
+      'klen/nvim-test',
+      config = function()
+        require('nvim-test').setup()
+    end
+    }
 end)

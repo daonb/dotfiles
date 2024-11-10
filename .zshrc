@@ -6,6 +6,7 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export GO11MODULE=on
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/node/bin:/usr/local/go/bin:/Library/TeX/texbin:/snap/bin:/sbin:$PATH"
 
 if [ -d "/usr/games" ]; then

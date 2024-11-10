@@ -91,3 +91,4 @@ hi diffChange ctermfg=188 ctermbg=NONE cterm=bold guifg=#50FA7B guibg=#303030 gu
 hi diffRemoved ctermfg=88 ctermbg=NONE cterm=NONE guifg=#FA5057 guibg=#303030 gui=NONE
 ]]
 
+require('nvim-test').setup()
